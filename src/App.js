@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-      <section className="hero is-primary is-medium">
+      <section className="hero is-primary">
         <div className="hero-head">
           <nav className="navbar">
             <div className="container">
