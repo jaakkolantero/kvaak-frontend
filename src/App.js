@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import {Route, Switch, Link} from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import 'font-awesome/css/font-awesome.min.css';
+
+import AddSighting from 'containers/AddSighting';
+import HomePage from 'containers/HomePage';
+import Sightings from 'containers/Sightings';
+import Species from 'containers/Species';
 
 class App extends Component {
   render() {
@@ -22,15 +28,9 @@ class App extends Component {
               </div>
               <div id="navbarMenu" className="navbar-menu">
                 <div className="navbar-end">
-                  <a className="navbar-item">
-                    Sightings
-                  </a>
-                  <a className="navbar-item">
-                    Species
-                  </a>
-                  <a className="navbar-item">
-                    Add Sigting
-                  </a>
+                  <Link to="/Sightings" className="navbar-item">Sightings</Link>
+                  <Link to="/Species" className="navbar-item">Species</Link>
+                  <Link to="/AddSighting" className="navbar-item">Add sighting</Link>
                   <a className="navbar-item">
                     <span className="icon is-large">
                         <i className="fa fa-2x fa-cog"></i>
@@ -42,16 +42,12 @@ class App extends Component {
           </nav>
         </div>
 
-        <div className="hero-body">
-          <div className="container">
-            <h1 className="title">
-              What is that?
-            </h1>
-            <h2 className="subtitle">
-              Is it a plane? <strong>No!</strong> Is it a bird? <strong>Yes!</strong>
-            </h2>
-          </div>
-        </div>
+        <Switch>
+          <Route exact={true} path="/" component={HomePage}></Route>
+          <Route path="/AddSighting" component={AddSighting}></Route>
+          <Route path="/Sightings" component={Sightings}></Route>
+          <Route path="/Species" component={Species}></Route>
+        </Switch>
 
       </section>
 
