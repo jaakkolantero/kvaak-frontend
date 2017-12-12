@@ -3,10 +3,10 @@ import {Route, Switch, Link} from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import 'font-awesome/css/font-awesome.min.css';
 
-import AddSighting from 'containers/AddSighting';
-import HomePage from 'containers/HomePage';
-import Sightings from 'containers/Sightings';
-import Species from 'containers/Species';
+import AddSighting from 'pages/AddSighting';
+import HomePage from 'pages/HomePage';
+import Sightings from 'pages/Sightings';
+import Species from 'pages/Species';
 
 class App extends Component {
   render() {
@@ -17,9 +17,9 @@ class App extends Component {
           <nav className="navbar">
             <div className="container">
               <div className="navbar-brand">
-                <a className="navbar-item" href="../">
-                  <h1 className="title  ">KvaaK!</h1>
-                </a>
+                <Link to="/" className="navbar-item">
+                  <h1 className="title">KvaaK!</h1>
+                </ Link>
                 <span className="navbar-burger burger" data-target="navbarMenu">
                   <span></span>
                   <span></span>
@@ -42,12 +42,18 @@ class App extends Component {
           </nav>
         </div>
 
-        <Switch>
-          <Route exact={true} path="/" component={HomePage}></Route>
-          <Route path="/AddSighting" component={AddSighting}></Route>
-          <Route path="/Sightings" component={Sightings}></Route>
-          <Route path="/Species" component={Species}></Route>
-        </Switch>
+        <div className="hero-body">
+          <div className="container">
+            <Switch>
+              <Route exact path="/" component={HomePage}></Route>
+              <Route exact path="/Sightings" component={Sightings}/>
+              <Route path="/Sightings/:id" render={( {match} ) => (
+                <h1>{match.params.id}</h1>)}/>
+              <Route path="/AddSighting" component={AddSighting}></Route>
+              <Route path="/Species" component={Species}></Route>
+            </Switch>
+          </div>
+        </div>
 
       </section>
 
@@ -61,7 +67,7 @@ class App extends Component {
           </p>
           <div className="content">
             <hr />
-            <p>With <strong>KvaaK!</strong> you can checkout what birds have been spotted by your twitcher friends and report your own sigtings!</p>
+            <p>With <strong>KvaaK!</strong> you can checkout what birds have been spotted by your twitcher friends and report your own sightings!</p>
           </div>
         </div>
       </section>
