@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Switch, Link} from 'react-router-dom';
+import {Route, Switch, NavLink} from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -17,9 +17,9 @@ class App extends Component {
           <nav className="navbar">
             <div className="container">
               <div className="navbar-brand">
-                <Link to="/" className="navbar-item">
+                <NavLink to="/" className="navbar-item">
                   <h1 className="title">KvaaK!</h1>
-                </ Link>
+                </ NavLink>
                 <span className="navbar-burger burger" data-target="navbarMenu">
                   <span></span>
                   <span></span>
@@ -28,9 +28,9 @@ class App extends Component {
               </div>
               <div id="navbarMenu" className="navbar-menu">
                 <div className="navbar-end">
-                  <Link to="/Sightings" className="navbar-item">Sightings</Link>
-                  <Link to="/Species" className="navbar-item">Species</Link>
-                  <Link to="/AddSighting" className="navbar-item">Add sighting</Link>
+                  <NavLink to="/Sightings" activeClassName="navbar-item is-active" className="navbar-item">Sightings</NavLink>
+                  <NavLink to="/Species" activeClassName="navbar-item is-active" className="navbar-item">Species</NavLink>
+                  <NavLink to="/AddSighting" activeClassName="navbar-item is-active" className="navbar-item">Add sighting</NavLink>
                   <a className="navbar-item">
                     <span className="icon is-large">
                         <i className="fa fa-2x fa-cog"></i>
