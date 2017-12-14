@@ -7,6 +7,7 @@ import AddSighting from 'pages/AddSighting';
 import HomePage from 'pages/HomePage';
 import Sightings from 'pages/Sightings';
 import Species from 'pages/Species';
+import Navigation from 'components/Navigation';
 
 class App extends Component {
   render() {
@@ -14,34 +15,8 @@ class App extends Component {
       <React.Fragment>
       <section className="hero is-primary">
         <div className="hero-head">
-          <nav className="navbar">
-            <div className="container">
-              <div className="navbar-brand">
-                <NavLink to="/" className="navbar-item">
-                  <h1 className="title">KvaaK!</h1>
-                </ NavLink>
-                <span className="navbar-burger burger" data-target="navbarMenu">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-              </div>
-              <div id="navbarMenu" className="navbar-menu">
-                <div className="navbar-end">
-                  <NavLink to="/Sightings" activeClassName="navbar-item is-active" className="navbar-item">Sightings</NavLink>
-                  <NavLink to="/Species" activeClassName="navbar-item is-active" className="navbar-item">Species</NavLink>
-                  <NavLink to="/AddSighting" activeClassName="navbar-item is-active" className="navbar-item">Add sighting</NavLink>
-                  <a className="navbar-item">
-                    <span className="icon is-large">
-                        <i className="fa fa-2x fa-cog"></i>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </nav>
+          <Navigation />
         </div>
-
         <div className="hero-body">
           <div className="container">
             <Switch>
