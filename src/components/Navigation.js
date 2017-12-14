@@ -4,15 +4,16 @@ import { NavLink } from 'react-router-dom';
 class Navigation extends Component {
   constructor(props) {
     super(props);
-    this.toggleNav= this.toggleNav.bind(this);
+    this.toggleActive= this.toggleActive.bind(this);
     this.state = {
-        activeNav: false,
+        isActive: false,
     };
   }
-  toggleNav() {
+
+  toggleActive() {
     // Change navbar state
     // If active add class is-active
-    this.setState({ activeNav: !this.state.activeNav });
+    this.setState({ isActive: !this.state.isActive });
   };
 
   render() {
@@ -24,13 +25,13 @@ class Navigation extends Component {
               <NavLink to="/" className="navbar-item">
                 <h1 className="title">KvaaK!</h1>
               </ NavLink>
-              <span className={this.state.activeNav ? 'navbar-burger burger  is-active': 'navbar-burger burger'}  onClick={this.toggleNav}>
+              <span className={this.state.isActive ? 'navbar-burger burger  is-active' : 'navbar-burger burger'}  onClick={this.toggleActive}>
                 <span></span>
                 <span></span>
                 <span></span>
               </span>
             </div>
-            <div id="navbarMenu" className={this.state.activeNav ? 'navbar-menu is-active': 'navbar-menu'}>
+            <div id="navbarMenu" className={this.state.isActive ? 'navbar-menu is-active' : 'navbar-menu'}>
               <div className="navbar-end">
                 <NavLink to="/Sightings" activeClassName="is-active" className="navbar-item">Sightings</NavLink>
                 <NavLink to="/Species" activeClassName="is-active" className="navbar-item">Species</NavLink>
