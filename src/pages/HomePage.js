@@ -5,11 +5,15 @@ class HomePage extends Component {
     return (
       <React.Fragment>
       <h1 className="title">
-        What is that?
+        About KvaaK!
       </h1>
-      <h2 className="subtitle">
-        Is it a plane? <strong>No!</strong> Is it a bird? <strong>Yes!</strong>
-      </h2>
+      <p className="subtitle">
+        KvaaK! is a platform for hardcore <strong>twitchers</ strong>!
+      </p>
+      <div className="content">
+        <hr />
+        <p>With <strong>KvaaK!</strong> you can checkout what birds have been spotted by your twitcher friends and report your own sightings!</p>
+      </div>
       </ React.Fragment>
     );
   }

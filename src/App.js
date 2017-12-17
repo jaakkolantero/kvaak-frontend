@@ -8,11 +8,39 @@ import HomePage from 'pages/HomePage';
 import Sightings from 'pages/Sightings';
 import Species from 'pages/Species';
 import Navigation from 'components/Navigation';
-import Sighting from 'components/Sighting';
+import Header from 'components/Header';
 
 
 class App extends Component {
   render() {
+    var homePageProps = {};
+    homePageProps.title = "What is that?";
+    homePageProps.subtitle =
+      <React.Fragment>
+        Is it a plane? <strong>No!</strong> Is it a bird? <strong>Yes!</strong>
+      </React.Fragment>;
+
+    var sightingsProps = {};
+    sightingsProps.title = "Sightings";
+    sightingsProps.subtitle =
+      <React.Fragment>
+        Jimbo just saw a <strong>mockingbird</strong>!
+      </React.Fragment>;
+
+    var addSightingsProps = {};
+    addSightingsProps.title = "Add Sightings";
+    addSightingsProps.subtitle =
+      <React.Fragment>
+        Did you see something interesting? Tell me about it!
+      </React.Fragment>;
+
+    var speciesProps = {};
+    speciesProps.title = "Species";
+    speciesProps.subtitle =
+      <React.Fragment>
+        There is many species but these are mine!
+      </React.Fragment>;
+
     return (
       <React.Fragment>
       <section className="hero is-primary">
@@ -21,14 +49,22 @@ class App extends Component {
         </div>
         <div className="hero-body">
           <div className="container">
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/Sightings" component={Sightings}/>
-              <Route path="/Sightings/:id" render={( {match} ) => (
-                <h1>{match.params.id}</h1>)}/>
-              <Route path="/AddSighting" component={AddSighting}></Route>
-              <Route path="/Species" component={Species}></Route>
-            </Switch>
+              <Switch>
+                <Route exact path="/" render={() => (
+                  <Header {...homePageProps} />
+                )}/>
+                <Route exact path="/Sightings" render={() => (
+                  <Header {...sightingsProps} />
+                )}/>
+                <Route path="/Sightings/:id" render={( {match} ) => (
+                  <h1>{match.params.id}</h1>)}/>
+                <Route path="/AddSighting" render={() => (
+                  <Header {...addSightingsProps} />
+                )}/>
+                <Route path="/Species" render={() => (
+                  <Header {...speciesProps} />
+                )}/>
+              </Switch>
           </div>
         </div>
 
@@ -36,21 +72,23 @@ class App extends Component {
 
       <section className="section">
         <div className="container">
-          <h1 className="title">
-            About KvaaK!
-          </h1>
-          <p className="subtitle">
-            KvaaK! is a platform for hardcore <strong>twitchers</ strong>!
-          </p>
-          <div className="content">
-            <hr />
-            <p>With <strong>KvaaK!</strong> you can checkout what birds have been spotted by your twitcher friends and report your own sightings!</p>
-          </div>
+          <Switch>
+            <Route exact path="/" render={() => (
+              <HomePage/>
+            )}/>
+            <Route exact path="/Sightings" render={() => (
+              <Sightings/>
+            )}/>
+            <Route path="/Sightings/:id" render={( {match} ) => (
+              <h1>{match.params.id}</h1>)}/>
+            <Route path="/AddSighting" render={() => (
+              <Header {...addSightingsProps} />
+            )}/>
+            <Route path="/Species" render={() => (
+              <Header {...speciesProps} />
+            )}/>
+          </Switch>
         </div>
-      </section>
-
-      <section className="section">
-        <Sighting />
       </section>
 
       <footer className="footer">
