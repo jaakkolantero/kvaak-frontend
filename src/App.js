@@ -8,6 +8,8 @@ import HomePage from 'pages/HomePage';
 import Sightings from 'pages/Sightings';
 import Species from 'pages/Species';
 import Navigation from 'components/Navigation';
+import Sighting from 'components/Sighting';
+
 
 class App extends Component {
   render() {
@@ -20,7 +22,7 @@ class App extends Component {
         <div className="hero-body">
           <div className="container">
             <Switch>
-              <Route exact path="/" component={HomePage}></Route>
+              <Route exact path="/" component={HomePage} />
               <Route exact path="/Sightings" component={Sightings}/>
               <Route path="/Sightings/:id" render={( {match} ) => (
                 <h1>{match.params.id}</h1>)}/>
@@ -45,6 +47,10 @@ class App extends Component {
             <p>With <strong>KvaaK!</strong> you can checkout what birds have been spotted by your twitcher friends and report your own sightings!</p>
           </div>
         </div>
+      </section>
+
+      <section className="section">
+        <Sighting />
       </section>
 
       <footer className="footer">
