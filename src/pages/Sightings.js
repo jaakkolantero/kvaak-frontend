@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import dummyData from './sightings.json';
 
 class Sightings extends Component {
   constructor(props) {
@@ -12,8 +13,8 @@ class Sightings extends Component {
     fetch('https://my.api.mockaroo.com/sightings.json?key=6abd0860')
     .then( response => response.json())
     .then(data => {
-      this.setState({sightings: data});
-      console.log(data[0].dateTime);
+      // this.setState({sightings: data});
+      this.setState({sightings: dummyData});
     });
   }
 
@@ -22,7 +23,7 @@ class Sightings extends Component {
     return (
       <React.Fragment>
       <div className="container">
-        {this.state && this.state.sightings && this.state.sightings.map(sighting =>
+        {this.state && this.state.sightings && this.state.sightings.map( sighting =>
           <React.Fragment key={sighting.id}>
             <article>
               {/*TODO: ADD TOOLTIP npm install react-tooltip for bird count */}
@@ -30,7 +31,6 @@ class Sightings extends Component {
               <p className="is-small has-text-grey-light">
                 <span className="has-text-grey-dark">ufox</span>
                 <span> - {sighting.dateTime}</span></p>
-              <hr />
               <p className="subtitle">{sighting.description}</p>
             </article>
             <hr />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Switch, NavLink} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -40,6 +40,7 @@ class App extends Component {
       <React.Fragment>
         There is many species but these are mine!
       </React.Fragment>;
+    speciesProps.species = ["mallard", "redhead", "mockingbird", "duck", "gadwall", "canvasback"];
 
     return (
       <React.Fragment>
@@ -82,10 +83,10 @@ class App extends Component {
             <Route path="/Sightings/:id" render={( {match} ) => (
               <h1>{match.params.id}</h1>)}/>
             <Route path="/AddSighting" render={() => (
-              <Header {...addSightingsProps} />
+              <AddSighting {...addSightingsProps} />
             )}/>
             <Route path="/Species" render={() => (
-              <Header {...speciesProps} />
+              <Species {...speciesProps}/>
             )}/>
           </Switch>
         </div>

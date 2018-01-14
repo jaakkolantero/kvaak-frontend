@@ -11,8 +11,6 @@ class Navigation extends Component {
   }
 
   toggleActive() {
-    // Change navbar state
-    // If active add class is-active
     this.setState({ isActive: !this.state.isActive });
   };
 

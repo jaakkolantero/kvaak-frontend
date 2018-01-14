@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 
 class Species extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      species: [],
+    };
+  }
+
+
   render() {
     return (
       <React.Fragment>
-      <h1 className="title">
-        Species
-      </h1>
-      <h2 className="subtitle">
-        There is many species but these are mine!
-      </h2>
+      {/* Reference to Sightings.js when getting real data */}
+      {this.props.species.map(bird =>
+          <React.Fragment key={bird}>
+          <h1 className="title">
+            {bird}
+          </h1>
+        </ React.Fragment>
+      )}
       </ React.Fragment>
     );
   }
