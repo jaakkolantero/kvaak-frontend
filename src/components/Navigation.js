@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Navbar, NavbarBrand, NavbarItem, Title, NavbarBurger, NavbarMenu, NavbarEnd} from 'bloomer'
+import { Navbar, NavbarBrand, Title, NavbarBurger, NavbarMenu, NavbarEnd} from 'bloomer'
 
 class Navigation extends Component {
   constructor(props) {
