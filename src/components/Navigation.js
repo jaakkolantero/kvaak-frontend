@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Navbar, NavbarBrand, NavbarItem, Title, NavbarBurger, NavbarMenu, NavbarEnd} from 'bloomer'
 
 class Navigation extends Component {
   constructor(props) {
@@ -17,34 +18,26 @@ class Navigation extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar">
-          <div className="container">
-            <div className="navbar-brand">
-              <NavLink to="/" className="navbar-item">
-                <h1 className="title">KvaaK!</h1>
+        <Navbar>
+          <NavbarBrand>
+            <NavLink to="/" className="navbar-item">
+              <Title>KvaaK!</ Title>
+            </ NavLink>
+            <NavbarBurger isActive={this.state.isActive} onClick={this.toggleActive} />
+          </ NavbarBrand>
+          <NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
+            <NavbarEnd>
+              <NavLink to="/Sightings" activeClassName="is-active" className="navbar-item">Sightings</NavLink>
+              <NavLink to="/Species" activeClassName="is-active" className="navbar-item">Species</NavLink>
+              <NavLink to="/AddSighting" activeClassName="is-active" className="navbar-item">Add sighting</NavLink>
+              <NavLink to="/Settings" activeClassName="is-active" className="navbar-item">
+                <span className="icon is-large">
+                    <i className="fa fa-2x fa-cog" />
+                </span>
               </ NavLink>
-              <span className={this.state.isActive ? 'navbar-burger burger  is-active' : 'navbar-burger burger'}  onClick={this.toggleActive}>
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </div>
-            <div id="navbarMenu" className={this.state.isActive ? 'navbar-menu is-active' : 'navbar-menu'}>
-              <div className="navbar-end">
-                <NavLink to="/Sightings" activeClassName="is-active" className="navbar-item">Sightings</NavLink>
-                <NavLink to="/Species" activeClassName="is-active" className="navbar-item">Species</NavLink>
-                <NavLink to="/AddSighting" activeClassName="is-active" className="navbar-item">Add sighting</NavLink>
-                <NavLink to="/Settings" activeClassName="is-active" className="navbar-item">
-                  <a className="navbar-item">
-                    <span className="icon is-large">
-                        <i className="fa fa-2x fa-cog"></i>
-                    </span>
-                  </a>
-                </ NavLink>
-              </div>
-            </div>
-          </div>
-        </nav>
+            </ NavbarEnd>
+          </ NavbarMenu>
+        </ Navbar>
       </ React.Fragment>
     );
   }
