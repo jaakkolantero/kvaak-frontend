@@ -15,7 +15,7 @@ class App extends Component {
             <Home />
           )}/>
           <Route exact path="/Sightings" render={() => (
-            <Home />
+            <Sightings />
           )}/>
           <Route path="/Sightings/:id" render={( {match} ) => (
             <h1>{match.params.id}</h1>)}/>
