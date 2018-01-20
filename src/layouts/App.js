@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Navigation from 'layouts/Navigation';
-import Home from 'views/Home';
 import Footer from 'layouts/Footer';
-import Sightings from 'views/Sightings'
+import Home from 'views/Home';
+import Sightings from 'views/Sightings';
+import Species from 'views/Species';
+import AddSighting from 'views/AddSighting';
+import Settings from 'views/Settings';
 
 class App extends Component {
   render() {
@@ -20,13 +23,13 @@ class App extends Component {
           <Route path="/Sightings/:id" render={( {match} ) => (
             <h1>{match.params.id}</h1>)}/>
           <Route path="/AddSighting" render={() => (
-            <Home />
+            <AddSighting />
           )}/>
           <Route path="/Species" render={() => (
-            <Home />
+            <Species />
           )}/>
           <Route path="/Settings" render={() => (
-            <Home />
+            <Settings />
           )}/>
         </Switch>
         <Footer />
