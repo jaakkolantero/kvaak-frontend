@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CalendarHeader from 'components/Calendar/CalendarHeader';
 import CalendarNav from 'components/Calendar/CalendarNav';
+import CalendarTime from 'components/Calendar/CalendarTime';
 import { string, func } from 'prop-types';
 import 'bulma-calendar/bulma-calendar.min.css';
 
@@ -11,6 +12,8 @@ class Calendar extends Component {
     let currentDate = new Date();
     this.state = {
       selectedDate: null,
+      currentMinute: currentDate.getMinutes(),
+      currentHour: currentDate.getHours(),
       currentMonth: currentDate.getMonth(),
       currentYear: currentDate.getFullYear()
     };
@@ -63,7 +66,13 @@ class Calendar extends Component {
       this.setState({
         selectedDate: day
       });
-      let newDate = new Date(this.state.currentYear, this.state.currentMonth, day);
+      let newDate = new Date(
+        this.state.currentYear,
+        this.state.currentMonth,
+        day,
+        this.state.currentHour,
+        this.state.currentMinute
+      );
       this.props.changeDate(newDate);
     } else {
       this.setState({
@@ -72,6 +81,22 @@ class Calendar extends Component {
       this.props.changeDate(null);
     }
 
+  }
+
+  changeTime = (hour, minute) => {
+    this.setState({
+      currentHour: hour,
+      currentMinute: minute
+    });
+    if (this.state.selectedDate !== null) {
+      this.props.changeDate(new Date(
+        this.state.currentYear,
+        this.state.currentMonth,
+        this.state.selectedDate,
+        hour,
+        minute,
+      ));
+    }
   }
 
   getWeekDays = (weekDays, weekStart) => {
@@ -160,6 +185,8 @@ class Calendar extends Component {
               </div>
             )}
           </div>
+          <CalendarTime changeTime={this.changeTime} />
+
         </div>
       </div>
     );

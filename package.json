@@ -6,6 +6,8 @@
     "bloomer": "^0.6.3",
     "bulma": "^0.6.2",
     "bulma-calendar": "^0.1.7",
+    "bulma-divider": "^0.1.0",
+    "bulma-slider": "^0.1.1",
     "font-awesome": "^4.7.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
