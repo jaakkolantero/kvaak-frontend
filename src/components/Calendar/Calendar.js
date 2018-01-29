@@ -26,7 +26,7 @@ class Calendar extends Component {
 
   static propTypes = {
     language: string,
-    changeDate: func.isRequired
+    onChange: func.isRequired
   };
 
   static defaultProps = {
@@ -73,12 +73,12 @@ class Calendar extends Component {
         this.state.currentHour,
         this.state.currentMinute
       );
-      this.props.changeDate(newDate);
+      this.props.onChange(newDate);
     } else {
       this.setState({
         selectedDate: null
       });
-      this.props.changeDate(null);
+      this.props.onChange(null);
     }
 
   }
@@ -89,7 +89,7 @@ class Calendar extends Component {
       currentMinute: minute
     });
     if (this.state.selectedDate !== null) {
-      this.props.changeDate(new Date(
+      this.props.onChange(new Date(
         this.state.currentYear,
         this.state.currentMonth,
         this.state.selectedDate,
@@ -160,7 +160,7 @@ class Calendar extends Component {
                 className="calendar-date is-disabled"
                 key={"prev"+day}
                 onClick={this.previousMonth}>
-                <button className="date-item">{day}</button>
+                <a className="button date-item">{day}</a>
               </div>
             )}
 
@@ -170,8 +170,8 @@ class Calendar extends Component {
                 key={"curr"+day}
                 onClick={() => this.selectDay(day)}
               >
-                <button
-                  className={day === this.state.selectedDate ? "date-item is-active" : "date-item"}>{day}</button>
+                <a
+                  className={day === this.state.selectedDate ? "button date-item is-active" : "button date-item"}>{day}</a>
               </div>
             )}
 
@@ -181,7 +181,7 @@ class Calendar extends Component {
                 key={"next"+day}
                 onClick={this.nextMonth}
               >
-                <button className="date-item">{day}</button>
+                <a className="button date-item">{day}</a>
               </div>
             )}
           </div>
