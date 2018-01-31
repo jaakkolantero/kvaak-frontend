@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { string, number } from 'prop-types'
+import { string, number } from 'prop-types';
+import moment from 'moment';
 
 class SightingItem extends Component {
   static propTypes = {
@@ -23,13 +24,18 @@ class SightingItem extends Component {
       dateTime,
       description
     } = this.props
+    let localDateTime = moment(dateTime).format("D.M.YYYY - HH:mm");
     return(
       <React.Fragment>
         <article>
-          <p className="title">{species} <sup className="has-text-grey-light">{count} birds</sup></p>
+          <p className="title">{species}
+            <sup className="has-text-grey-light">
+              {count} bird{count>1 ? 's':''}
+            </sup>
+          </p>
           <p className="is-small has-text-grey-light">
-            <span className="has-text-grey-dark">ufox</span>
-            <span> - {dateTime}</span></p>
+            {localDateTime}
+          </p>
           <p className="subtitle">{description}</p>
         </article>
       </React.Fragment>

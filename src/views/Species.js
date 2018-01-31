@@ -12,7 +12,6 @@ class Species extends Component {
     const {
       species
     } = this.props;
-    console.log(species);
     return (
       <React.Fragment>
         <Header title="Species" subtitle="Aww! Pretty mallard!" />
