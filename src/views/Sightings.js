@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import dummyData from './sightings.json';
 import Header from 'components/Header';
 import SightingItem from 'components/SightingItem';
 import {Container} from 'bloomer';
