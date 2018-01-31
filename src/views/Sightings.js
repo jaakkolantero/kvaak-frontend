@@ -30,6 +30,6 @@ class Sightings extends Component {
   }
 }
 
-const mapStateToProps = ({sightings}) => ({sightings})
+const mapStateToProps = ({sightings}) => ({sightings});
 
 export default connect(mapStateToProps)(Sightings);

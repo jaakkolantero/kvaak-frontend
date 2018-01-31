@@ -1,10 +1,7 @@
-import {API_URL} from 'constants';
-
 export const SET_SIGHTINGS = 'SET_SIGHTINGS';
 
 export function getSightings() {
   return dispatch => {
-    console.log('${API_URL}/sightings');
     fetch('http://localhost:8081/sightings')
       .then(response => response.json())
       .then(sightings =>
@@ -13,9 +10,7 @@ export function getSightings() {
   };
 }
 
-export function setSightings(sightings) {
-  return {
-    type:SET_SIGHTINGS,
-    sightings
-  }
-}
+export const setSightings = sightings => ({
+  type:SET_SIGHTINGS,
+  sightings
+});

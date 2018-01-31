@@ -15,7 +15,7 @@ class SightingItem extends Component {
     dateTime: "2012-03-19T07:22Z",
     description: "This is default description."
   }
-  
+
   render() {
     const {
       species,
@@ -26,7 +26,6 @@ class SightingItem extends Component {
     return(
       <React.Fragment>
         <article>
-          {/*TODO: ADD TOOLTIP npm install react-tooltip for bird count */}
           <p className="title">{species} <sup className="has-text-grey-light">{count} birds</sup></p>
           <p className="is-small has-text-grey-light">
             <span className="has-text-grey-dark">ufox</span>
