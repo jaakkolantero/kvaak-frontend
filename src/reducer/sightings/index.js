@@ -8,14 +8,14 @@ const sightings = (state = initialState, action) => {
       return action.sightings;
       break;
     case ADD_SIGHTING:
-      console.log("action");
       return [
         ...state,
         {
-          dateTime: action.dateTime,
-          species: action.species,
-          count: action.count,
-          description: action.description
+          id: action.sighting.id,
+          dateTime: action.sighting.dateTime,
+          species: action.sighting.species,
+          count: action.sighting.count,
+          description: action.sighting.description
         }
       ]
       break;

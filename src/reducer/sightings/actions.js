@@ -21,8 +21,13 @@ export function postSighting(sighting) {
         'Content-Type': 'application/json'
       })
     })
-    .then(response => response.json())
-    .then(sighting => dispatch(getSightings()))
+    .then(response => {
+      let sighting = response.json();
+      return sighting;
+    })
+    .then(sighting => {
+      return dispatch(addSighting(sighting));
+    })
     .catch(error => console.error('Error:', error))
     .then(response => console.log('Success'));
   };

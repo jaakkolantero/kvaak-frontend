@@ -105,7 +105,7 @@ class AddSighting extends Component {
 const mapDispatchToProps = dispatch =>
 (
   {
-    postSighting : (e) => {dispatch(postSighting(e))},
+    postSighting : (sighting) => {dispatch(postSighting(sighting))},
   }
 );
 
