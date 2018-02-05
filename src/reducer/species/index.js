@@ -2,7 +2,7 @@ import {SET_SPECIES} from './actions';
 
 const initialState = [];
 
-export default (state = initialState, action) => {
+const species = (state = initialState, action) => {
   switch (action.type) {
     case SET_SPECIES:
       return action.species;
@@ -11,3 +11,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default species;

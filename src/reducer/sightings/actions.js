@@ -1,4 +1,5 @@
 export const SET_SIGHTINGS = 'SET_SIGHTINGS';
+export const ADD_SIGHTING = 'ADD_SIGHTING';
 
 export function getSightings() {
   return dispatch => {
@@ -10,7 +11,29 @@ export function getSightings() {
   };
 }
 
+export function postSighting(sighting) {
+  return dispatch => {
+
+    fetch('http://localhost:8081/sightings', {
+      method: 'POST',
+      body: JSON.stringify(sighting),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    })
+    .then(response => response.json())
+    .then(sighting => dispatch(getSightings()))
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success'));
+  };
+}
+
 export const setSightings = sightings => ({
   type:SET_SIGHTINGS,
   sightings
+});
+
+export const addSighting = sighting => ({
+  type:ADD_SIGHTING,
+  sighting
 });

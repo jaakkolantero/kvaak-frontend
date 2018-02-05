@@ -23,7 +23,7 @@ class SightingItem extends Component {
       count,
       dateTime,
       description
-    } = this.props
+    } = this.props;
     let localDateTime = moment(dateTime).format("D.M.YYYY - HH:mm");
     return(
       <React.Fragment>

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Header from 'components/Header';
 import Calendar from 'components/Calendar/Calendar';
 import {Container, Columns, Column, Field, Label, Control, Input, Select, TextArea} from 'bloomer';
+import {connect} from 'react-redux';
+import {postSighting} from 'reducer/sightings/actions';
+
 
 class AddSighting extends Component {
   constructor (props) {
@@ -16,10 +19,8 @@ class AddSighting extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleDateChange = (date) => {
-    //let jsonDate = JSON.stringify(date);
-    //console.log(jsonDate);
-    this.setState({ dateTime: date });
+  handleDateChange = dateTime => {
+    this.setState({ dateTime });
   }
 
   handleInputChange = (event) => {
@@ -31,28 +32,17 @@ class AddSighting extends Component {
   }
 
   handleSubmit = (event) => {
-    let url = 'http://localhost:8081/sightings';
-    let jsonSighting = JSON.stringify({
-      dateTime: this.state.dateTime,
-      species: this.state.species,
-      count: this.state.count,
-      description: this.state.description
-    });
-
-    fetch(url, {
-      method: 'POST',
-      body: jsonSighting,
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      })
-    }).then(response => response.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
-
+      this.props.postSighting({
+        dateTime: this.state.dateTime,
+        species: this.state.species,
+        count: this.state.count,
+        description: this.state.description
+      });
     event.preventDefault();
   }
 
   render() {
+
     return (
       <React.Fragment>
         <Header title="Add Sighting" subtitle="Sharing is caring." />
@@ -112,4 +102,11 @@ class AddSighting extends Component {
   }
 }
 
-export default AddSighting;
+const mapDispatchToProps = dispatch =>
+(
+  {
+    postSighting : (e) => {dispatch(postSighting(e))},
+  }
+);
+
+export default connect(null, mapDispatchToProps)(AddSighting);

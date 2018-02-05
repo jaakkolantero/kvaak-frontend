@@ -4,10 +4,8 @@ import SightingItem from 'components/SightingItem';
 import {Container} from 'bloomer';
 import {connect} from 'react-redux';
 
+
 class Sightings extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const {
@@ -29,6 +27,8 @@ class Sightings extends Component {
   }
 }
 
-const mapStateToProps = ({sightings}) => ({sightings});
+const mapStateToProps = (state) => ({
+    sightings: state.sightings
+});
 
 export default connect(mapStateToProps)(Sightings);
