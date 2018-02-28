@@ -1,4 +1,4 @@
-import {SET_SIGHTINGS, ADD_SIGHTING} from './actions';
+import { SET_SIGHTINGS, ADD_SIGHTING } from "./actions";
 
 const initialState = [];
 
@@ -6,7 +6,6 @@ const sightings = (state = initialState, action) => {
   switch (action.type) {
     case SET_SIGHTINGS:
       return action.sightings;
-      break;
     case ADD_SIGHTING:
       return [
         ...state,
@@ -17,11 +16,10 @@ const sightings = (state = initialState, action) => {
           count: action.sighting.count,
           description: action.sighting.description
         }
-      ]
-      break;
+      ];
     default:
       return state;
   }
-}
+};
 
 export default sightings;
