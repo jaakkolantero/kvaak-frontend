@@ -79,7 +79,7 @@ const updateBackend = () => {
   let previousChecked = previousBackends.findIndex(
     backend => backend.checked === true
   );
-  
+
   if (currentChecked !== previousChecked) {
     store.dispatch(getSightings());
     store.dispatch(getSpecies());

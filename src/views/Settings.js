@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { setBackendUrl, selectBackend } from "reducer/backends/actions";
 import Header from "components/Header";
+import { Container, Title } from "bloomer";
 
 let BackendUrlInput = ({ id, url, ref, dispatch }) => {
   // https://gist.github.com/krstffr/245fe83885b597aabaf06348220c2fe9
@@ -62,12 +63,19 @@ Backend.propTypes = {
 const BackendList = ({ backends, onSelectBackend }) => (
   <React.Fragment>
     <Header title="Settings" subtitle="Do it like that!" />
-    {backends.map(backend => (
-      <React.Fragment key={backend.id}>
-        <Backend {...backend} onClick={() => onSelectBackend(backend.id)} />
-        <br />
-      </React.Fragment>
-    ))}
+    <br />
+    <Container>
+      <Title>API endpoints:</Title>
+      <div style={{ paddingLeft: 10 }}>
+        {backends.map(backend => (
+          <React.Fragment key={backend.id}>
+            <Backend {...backend} onClick={() => onSelectBackend(backend.id)} />
+            <br />
+          </React.Fragment>
+        ))}
+      </div>
+    </Container>
+    <br />
   </React.Fragment>
 );
 
