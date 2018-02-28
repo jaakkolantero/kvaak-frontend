@@ -14,7 +14,7 @@ class Sightings extends Component {
           {sightings &&
             sightings.map(sighting => (
               <React.Fragment key={sighting.id}>
-                <SightingItem {...sighting} count={sighting.count.toString()} />
+                <SightingItem {...sighting} />
                 <hr />
               </React.Fragment>
             ))}

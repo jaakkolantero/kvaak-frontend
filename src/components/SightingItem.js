@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import { string } from "prop-types";
+import { string, number } from "prop-types";
 import moment from "moment";
 
 class SightingItem extends Component {
   static propTypes = {
     species: string,
-    count: string,
+    count: number,
     dateTime: string,
     description: string
   };
 
   static defaultProps = {
     species: "bird",
-    count: "1",
+    count: 1,
     dateTime: "2012-03-19T07:22Z",
     description: "This is default description."
   };
