@@ -16,6 +16,7 @@ import { v4 } from "uuid";
 import debounce from "lodash.debounce";
 import throttle from "lodash.throttle";
 import { loadState, saveState } from "./localStorage";
+import { fetchMarkdown } from "reducer/markdown/actions";
 
 const persistedState = loadState();
 
@@ -24,6 +25,8 @@ export const store = createStore(
   persistedState,
   composeWithDevTools(applyMiddleware(thunk))
 );
+
+store.dispatch(fetchMarkdown());
 
 if (!persistedState) {
   store.dispatch(
