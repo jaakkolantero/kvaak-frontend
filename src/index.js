@@ -31,7 +31,6 @@ store.dispatch(
     "//raw.githubusercontent.com/terokoodaa/kvaak-frontend/master/README.md"
   )
 );
-console.log("Calling fetch markdown.");
 
 if (!persistedState) {
   store.dispatch(

@@ -6,7 +6,6 @@ export function fetchMarkdown(url) {
   return dispatch => {
     fetch(url)
       .then(response => {
-        console.log(response);
         return response.text();
       })
       .then(markdown => {
