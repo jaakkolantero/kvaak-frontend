@@ -2,11 +2,9 @@ import { getActiveBackend } from "reducer/backends";
 
 export const GET_MARKDOWN = "GET_MARKDOWN";
 
-export function fetchMarkdown() {
+export function fetchMarkdown(url) {
   return dispatch => {
-    fetch(
-      `//raw.githubusercontent.com/terokoodaa/kvaak-frontend/master/README.md`
-    )
+    fetch(url)
       .then(response => {
         console.log(response);
         return response.text();

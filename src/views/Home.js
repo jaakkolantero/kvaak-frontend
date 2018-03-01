@@ -20,7 +20,6 @@ class Home extends Component {
             spotted by your twitcher friends and report your own sightings!
           </p>
           <br /> <br />
-
           <Markdown className="markdown-body" source={markdown} />
         </Container>
       </React.Fragment>
