@@ -1,3 +1,11 @@
+## Quick guide
+```
+git clone https://github.com/terokoodaa/kvaak-frontend.git
+cd kvaak-frontend
+npm install
+npm start
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
