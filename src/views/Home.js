@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import Header from "components/Header";
 import { Container } from "bloomer";
 import Markdown from "react-markdown";
+import "github-markdown-css/github-markdown.css";
 import { connect } from "react-redux";
 
 class Home extends Component {
   render() {
     const { markdown } = this.props;
-    console.log(markdown);
     return (
       <React.Fragment>
         <Header
@@ -20,7 +20,8 @@ class Home extends Component {
             spotted by your twitcher friends and report your own sightings!
           </p>
           <br /> <br />
-          <Markdown source={markdown} />
+
+          <Markdown className="markdown-body" source={markdown} />
         </Container>
       </React.Fragment>
     );
