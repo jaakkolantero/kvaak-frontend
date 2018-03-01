@@ -1,4 +1,5 @@
-## Quick guide
+## Quick guide 
+###### Making better one when I have the time.
 ```
 git clone https://github.com/terokoodaa/kvaak-frontend.git
 cd kvaak-frontend
